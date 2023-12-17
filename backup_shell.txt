@@ -1,0 +1,4 @@
+scp -i backup.pem -r ubuntu@ec2-54-234-169-80.compute-1.amazonaws.com:/var/www/html /home/parthmekhia/backup
+ssh -i backup.pem ubuntu@ec2-54-234-169-80.compute-1.amazonaws.com "mysqldump -h database-1.cyhfnh5unwqd.us-east-1.rds.amazonaws.com -u admin -p --set-gtid-purged=OFF MASTER > /home/ubuntu/sql_backup/db_backup_$(date +"%d%m%Y").sql"
+scp -i backup.pem -r ubuntu@ec2-54-234-169-80.compute-1.amazonaws.com:/home/ubuntu/sql_backup /home/parthmekhia/backup
+exit
